@@ -3,7 +3,10 @@ import { ApiResponse, BackendError } from "../types";
 
 const axiosInstance = axios.create({
     timeout: 10000,
-    baseURL: import.meta.env.VITE_API_URL
+    baseURL: import.meta.env.VITE_API_URL,
+    headers: {
+        "Content-Type": "application/json"
+    }
 })
 
 export const apiRequest = async <T>(config: AxiosRequestConfig) : Promise<ApiResponse<T>> => {

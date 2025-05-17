@@ -16,9 +16,6 @@ export const addProduct = async (productData : ProductData) : Promise<ApiRespons
     return await apiRequest<Product>({
         url: '/api/products',
         method: 'POST',
-        headers: {
-            "Content-Type": 'application/json'
-        },
         data: result.output
     })
 }
@@ -66,9 +63,6 @@ export const updateProduct = async (productData : ProductData) : Promise<ApiResp
     return apiRequest<Product>({
         url: `/api/products/${result.output.id}`,
         method: 'PUT',
-        headers: {
-            "Content-Type": 'application/json'
-        },
         data: {
             name: result.output.name,
             price: result.output.price,
